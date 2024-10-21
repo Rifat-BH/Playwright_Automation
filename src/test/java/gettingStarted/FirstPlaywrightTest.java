@@ -9,13 +9,13 @@ public class FirstPlaywrightTest {
     public static void main(String[] args) {
         Playwright pw = Playwright.create();
         BrowserType browserType = pw.chromium();
-        Browser browser = browserType.launch(new BrowserType.LaunchOptions().setHeadless(false));
+        Browser browser = browserType.launch(new BrowserType.LaunchOptions().setHeadless(false).setChannel("chrome"));
         Page page = browser.newPage();
         page.navigate("https://www.google.com/");
         System.out.println(page.title());
         page.close();
         browser.close();
-        pw.close(); 
+        pw.close();
     }
 
 }
